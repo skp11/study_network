@@ -255,6 +255,27 @@ OR
 * ip, hostname, ping, grep, wc 명령어 활용  
 * 각 정보를 변수에 저장 후 출력
 
+```shell
+# 셸 스크립트
+#!/bin/bash
+
+internal_ip="$(hostname -I)"
+
+
+
+
+echo "=== 시스템 네트워크 정보 ===
+내부 IP: ${internal_ip}
+기본 게이트웨이: 192.168.1.X
+활성 인터페이스: X개
+인터넷 연결: 정상/차단"                        
+```
+
+```shell
+# 스크립트 실행
+```
+
+
 ---
 
 ## **실행 방법**
