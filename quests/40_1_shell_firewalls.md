@@ -29,16 +29,16 @@ $ sudo ./[problem1.sh](http://problem1.sh) 192.168.0.100
   5 
   6 # If IP exists in firewall rich rule
   7 if sudo firewall-cmd --list-rich-rules | grep -q "${ip}"; then
-  8         echo "[INFO] ${ip}은 이미 차단되어 있습니다.
-  9 [SKIP] 추가 작업을 수행하지 않습니다."
+  8         echo "[INFO] ${ip}은 이미 차단되어 있습니다."
+  9         echo "[SKIP] 추가 작업을 수행하지 않습니다."
  10 
  11 # If IP does not exist in firewall rich rule
  12 else
- 13         sudo firewall-cmd --permanent --add-rich-rule="rule family='ipv4' source address='${ip}' r    eject"
- 14         sudo firewall-cmd --reload
- 15         echo "[INFO] 현재 rich rule 목록에 ${ip} 차단 룰이 존재하지 않습니다.
- 16 [INFO] 차단 룰을 추가합니다...
- 17 success"
+ 13         sudo firewall-cmd --permanent --add-rich-rule="rule family='ipv4' source address='${ip}' reject" > /dev/null
+ 14         sudo firewall-cmd --reload > /dev/null
+ 15         echo "[INFO] 현재 rich rule 목록에 ${ip} 차단 룰이 존재하지 않습니다."
+ 16         echo "[INFO] 차단 룰을 추가합니다..."
+ 17         echo "success"
  18 fi
 
 ```
